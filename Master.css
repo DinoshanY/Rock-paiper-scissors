@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+}
+
+.Bot-Text {
+    text-align: center;
+}
+
+body {
+    padding: 0;
+}
+
+.b2 {
+    text-align: center;
+}
+
+.Center {
+    display: inline-block;
+}
+
+.Answer {
+    text-align: center;
+}
+
+.Container {
+    float: left;
+}

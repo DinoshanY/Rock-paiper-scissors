@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Papier Siccors</title>
+    <link rel="stylesheet" href="Master.css">
+</head>
+
+
+<body class="b2">
+    <h1>Rock Papier Siccors</h1>
+    <button onclick="start()">Start</button>
+
+    <div id="Bot-Pick" class="Bot-Text">__________</div>
+
+    <div class="center">
+        <button onclick="rock()">Rock</button>
+        <button onclick="paiper()">Paiper</button>
+        <button onclick="siccors()">Siccors</button>
+    </div>
+
+    <div id="Answer" class="Answer"></div>
+
+    <progress value="0" max="3" id="progressBar"> </progress>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
