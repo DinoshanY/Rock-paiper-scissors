@@ -7,26 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Papier Siccors</title>
     <link rel="stylesheet" href="Master.css">
+    <link rel="shortcut icon" href="#">
 </head>
 
 
-<body class="b2">
-    <h1>Rock Papier Siccors</h1>
-    <button onclick="start()">Start</button>
-
-    <div id="Bot-Pick" class="Bot-Text">__________</div>
-
-    <div class="center">
-        <button onclick="rock()">Rock</button>
-        <button onclick="paiper()">Paiper</button>
-        <button onclick="siccors()">Siccors</button>
+<body>
+    <div>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+        </ul>
+        <h1>Rock Papier Siccors</h1>
     </div>
 
-    <div id="Answer" class="Answer"></div>
 
-    <progress value="0" max="3" id="progressBar"> </progress>
+    <div class="contain">
+        <div id="Bot-Pick" class="Bot-Text">Bot Choice</div>
+        <div id="Answer" class="Answer">Round winner</div>
+    </div>
+
+    <div class="button" onclick="start()">Play</div>
+
+    <div class="input">
+        <button class="button" onclick="rock()">Rock</button>
+        <button class="button" onclick="paiper()">Paiper</button>
+        <button class="button" onclick="siccors()">Siccors</button>
+    </div>
+
+    <div class="container">
+        <img src="Images/Rock.jpg" width="400" height="300" id="humanImg">
+        <div class="time" id="time">3</div>
+        <img src="Images/Rock.jpg" width="400" height="300" id="img">
+    </div>
+
+    <div id="score" class="score"></div>
+    <div id="count" class="count"></div>
+    <div id="newRound" class="newRound"></div>
+
+
+    <audio id="Win">
+        <source src="Sound/sax.mp3" type="audio/mpeg">
+      </audio>
+    <audio id="Tie">
+        <source src="Sound/Giorno.mp3" type="audio/mpeg">
+      </audio>
+    <audio id="Lose">
+        <source src="Sound/Dark Souls ' You Died ' Sound Effect.m4a" type="audio/mpeg">
+    </audio>
+
+    <progress class="progress" value="0" max="3" id="progressBar"></progress>
 
     <script src="script.js"></script>
+
 </body>
 
 </html>
