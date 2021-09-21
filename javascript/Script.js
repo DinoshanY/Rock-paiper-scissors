@@ -5,8 +5,8 @@ let Timer;
 let bot;
 let images;
 let botimages;
-let imageDir = "./Images/"
-let imageDirbot = "./Images/"
+let imageDir = ".././Images/"
+let imageDirbot = ".././Images/"
 let delayInSeconds = 1;
 
 //starts the game
@@ -304,4 +304,11 @@ function tie() {
         images = ['Siscors.jpg'];
         humanRoll();
     }
+}
+
+//alert to know that online is for touch screen only
+function online() {
+    alert(
+        "Online is for touch screen only"
+    )
 }
