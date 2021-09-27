@@ -102,16 +102,33 @@ function random() {
     if (bot === 1) {
         document.getElementById("Bot-Pick").innerHTML = "Rock";
         botimages = ['Rock.jpg'];
+        user2 = {
+            input: "rock",
+            weakness: "paper",
+            strong: "siscors",
+        }
         roll();
     }
     if (bot === 2) {
         document.getElementById("Bot-Pick").innerHTML = "paiper";
         botimages = ['Paiper.jpg'];
+        user2 = {
+            input: "paper",
+            weakness: "siscors",
+            strong: "rock",
+
+        }
         roll();
     }
     if (bot === 3) {
         document.getElementById("Bot-Pick").innerHTML = "siccors";
         botimages = ['Siscors.jpg'];
+        user2 = {
+            input: "siscors",
+            weakness: "rock",
+            strong: "paper",
+
+        }
         roll();
 
     }
@@ -121,20 +138,37 @@ function random() {
 //The user choices
 function rock() {
     human = 1;
+    user1 = {
+        input: "rock",
+        weakness: "paper",
+        strong: "siscors",
+        pic: 'Rock.jpg',
+    }
 }
 
 function paiper() {
     human = 2;
+    user1 = {
+        input: "paper",
+        weakness: "siscors",
+        strong: "rock",
+        pic: 'Paiper.jpg',
+    }
 }
 
 function siccors() {
     human = 3;
+    user1 = {
+        input: "siscors",
+        weakness: "rock",
+        strong: "paper",
+        pic: 'Siscors.jpg',
+    }
 }
 
 //Decieds who wins or loses
-function battle(human) {
-    if (bot === human) {
-
+function battle() {
+    if (user1.input === user2.input) {
         document.getElementById("Answer").innerHTML = `Tie`;
         document.getElementById("Tie").play();
         tie();
@@ -142,62 +176,20 @@ function battle(human) {
             game();
         }, 2000);
     }
-    if (human === 2 && bot === 1) {
-
+    if (user1.input && (user2.input === user1.strong)) {
         document.getElementById("Answer").innerHTML = `Human Wins`;
         document.getElementById("Win").play();
         document.getElementById("count").innerHTML += `X`;
-        images = ['Paiper.jpg'];
+        images = [user1.pic];
         humanRoll();
         point++;
         loop();
     }
-    if (human === 3 && bot === 1) {
-
+    if (user1.input && (user2.input === user1.weakness)) {
         document.getElementById("Answer").innerHTML = `Human Lose`;
         document.getElementById("Lose").play();
         document.getElementById("count").innerHTML += `O`;
-        images = ['Siscors.jpg'];
-        humanRoll();
-        botpoint++;
-        loop();
-    }
-    if (human === 3 && bot === 2) {
-
-        document.getElementById("Answer").innerHTML = `Human Wins`;
-        document.getElementById("Win").play();
-        document.getElementById("count").innerHTML += `X`;
-        images = ['Siscors.jpg'];
-        humanRoll();
-        point++;
-        loop();
-    }
-    if (human === 1 && bot === 2) {
-
-        document.getElementById("Answer").innerHTML = `Human Lose`;
-        document.getElementById("Lose").play();
-        document.getElementById("count").innerHTML += `O`;
-        images = ['Rock.jpg'];
-        humanRoll();
-        botpoint++;
-        loop();
-    }
-    if (human === 1 && bot === 3) {
-
-        document.getElementById("Answer").innerHTML = `Human Wins`;
-        document.getElementById("Win").play();
-        document.getElementById("count").innerHTML += `X`;
-        images = ['Rock.jpg'];
-        humanRoll();
-        point++;
-        loop();
-    }
-    if (human === 2 && bot === 3) {
-
-        document.getElementById("Answer").innerHTML = `Human Lose`;
-        document.getElementById("Lose").play();
-        document.getElementById("count").innerHTML += `O`;
-        images = ['Paiper.jpg'];
+        images = [user1.pic];
         humanRoll();
         botpoint++;
         loop();
@@ -304,11 +296,4 @@ function tie() {
         images = ['Siscors.jpg'];
         humanRoll();
     }
-}
-
-//alert to know that online is for touch screen only
-function online() {
-    alert(
-        "Online is for touch screen only"
-    )
 }

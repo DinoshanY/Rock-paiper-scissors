@@ -139,7 +139,7 @@ function loop() {
     }
     if (point2 === 2) {
         document.getElementById("score").innerHTML = "user1 Loses the game";
-        document.getElementById("score").innerHTML = "user2 wins the game";
+        document.getElementById("score2").innerHTML = "user2 wins the game";
         document.getElementById("newRound").innerHTML = "To play again press play!";
 
     }
@@ -149,12 +149,12 @@ function loop() {
 function earlyLoop() {
     if (point2 === 2) {
         document.getElementById("score").innerHTML = "user1 Loses the game";
-        document.getElementById("score").innerHTML = "user2 wins the game";
+        document.getElementById("score2").innerHTML = "user2 wins the game";
         document.getElementById("newRound").innerHTML = "To play again press play!";
         return;
     }
     if (point === 2) {
-        document.getElementById("score").innerHTML = "user2 Loses the game";
+        document.getElementById("score2").innerHTML = "user2 Loses the game";
         document.getElementById("score").innerHTML = "user1 wins the game";
         document.getElementById("newRound").innerHTML = "To play again press play!";
         return;
