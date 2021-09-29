@@ -8,10 +8,12 @@
     <title>Rock Papier Siccors</title>
     <link rel="stylesheet" href="../Master.css">
     <link rel="shortcut icon" href="#">
+    <script src="../javascript/Log.js" type="module"></script>
 </head>
 
 
 <body>
+    <!--Send you to home page-->
     <div>
         <ul>
             <li><a href="../Index.html">Home</a></li>
@@ -19,32 +21,36 @@
         <h1>Rock Papier Siccors</h1>
     </div>
 
-
+    <!--bot choice and the round winner-->
     <div class="contain">
-        <div id="Bot-Pick" class="Bot-Text">Bot Choice</div>
-        <div id="Answer" class="Answer">Round winner</div>
+        <div id="Bot-Pick" class="Bot-Text"></div>
+        <div id="Answer" class="Answer"></div>
     </div>
+
     <div class="starter">
-        <div class="button" onclick="start()">Play</div>
+        <div class="button" id="starty">Play</div>
     </div>
 
-
-
+    <!--Images and timer-->
     <div class="container">
-        <img src="../Images/Rock.jpg" width="400" height="300" id="humanImg">
+        <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="humanImg">
         <div class="time" id="time">3</div>
-        <img src="../Images/Rock.jpg" width="400" height="300" id="img">
+        <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="img">
     </div>
+
+    <!-- user inputs-->
     <div class="input">
-        <button class="button" onclick="rock()">Rock</button>
-        <button class="button" onclick="paiper()">Paiper</button>
-        <button class="button" onclick="siccors()">Siccors</button>
+        <button class="button" id="Rocky">Rock</button>
+        <button class="button" id="Paipery">Paiper</button>
+        <button class="button" id="Siccorsy">Siccors</button>
     </div>
+
+    <!--the score, a count for each round, and a text for newround-->
     <div id="score" class="score"></div>
     <div id="count" class="count"></div>
     <div id="newRound" class="newRound"></div>
 
-
+    <!--diffrent sound, i do not own the sounds-->
     <audio id="Win">
         <source src="../Sound/sax.mp3" type="audio/mpeg">
       </audio>
@@ -55,9 +61,8 @@
         <source src="../Sound/Dark Souls ' You Died ' Sound Effect.m4a" type="audio/mpeg">
     </audio>
 
+    <!--importat to the timer, uses opacity 0-->
     <progress class="progress" value="0" max="3" id="progressBar"></progress>
-
-    <script src="../javascript/ScriptOpptimiset.js"></script>
 
 </body>
 

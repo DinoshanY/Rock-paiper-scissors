@@ -54,8 +54,8 @@
  }
  
  .button {
-     background-color: gray;
-     border: none;
+     background-color: rgb(78, 78, 78);
+     border-color: black 5px;
      color: white;
      padding: 15px 32px;
      text-align: center;
@@ -64,6 +64,10 @@
      font-size: 16px;
      margin: 4px 2px;
      cursor: pointer;
+ }
+ 
+ .button:hover {
+     transform: scale(1.2);
  }
  
  .input {

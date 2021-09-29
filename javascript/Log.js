@@ -1,3 +1,5 @@
+import { Paipery, Rocky, Siccorsy, starty, Img, HumanImg, Newround, score, answer, lose, win, count, ties, botpicks, times } from "./export.js";
+
 // Variables
 let botpoint = 0;
 let point = 0;
@@ -8,15 +10,27 @@ let botimages;
 let imageDir = ".././Images/"
 let imageDirbot = ".././Images/"
 let delayInSeconds = 1;
+let human;
+let botClear;
+let clear;
+let user1;
+let user2;
+
+
+//event liseners
+starty.addEventListener("click", start);
+Rocky.addEventListener("click", rock);
+Paipery.addEventListener("click", paiper);
+Siccorsy.addEventListener("click", siccors);
 
 //starts the game
 function start() {
     botpoint = 0;
     point = 0;
     game();
-    document.getElementById("score").innerHTML = "";
-    document.getElementById("count").innerHTML = "";
-    document.getElementById("newRound").innerHTML = "";
+    score.innerHTML = "";
+    count.innerHTML = "";
+    Newround.innerHTML = "";
     botimages = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
     images = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
 
@@ -26,12 +40,13 @@ function start() {
 function game() {
     bot = Math.round(Math.random() * 2 + 1);
     console.log(bot);
-    document.getElementById("Answer").innerHTML = ``;
-    document.getElementById("time").innerHTML = `3`;
-    document.getElementById("Bot-Pick").innerHTML = ``;
-    document.getElementById("Tie").pause();
-    document.getElementById("Lose").pause();
-    document.getElementById("Win").pause();
+    answer.style.color = "black";
+    answer.innerHTML = ``;
+    times.innerHTML = `3`;
+    botpicks.innerHTML = ``;
+    ties.pause();
+    lose.pause();
+    win.pause();
     human = 0;
     botimages = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
     images = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
@@ -48,23 +63,24 @@ function game() {
         timeleft--;
 
         if (timeleft == 2) {
-            document.getElementById("time").innerHTML = `3`;
+            times.innerHTML = `3`;
         }
         if (timeleft == 1) {
-            document.getElementById("time").innerHTML = `2`;
+            times.innerHTML = `2`;
         }
         if (timeleft == 0) {
-            document.getElementById("time").innerHTML = `1`;
+            times.innerHTML = `1`;
         }
         if (timeleft == -1) {
-            document.getElementById("time").innerHTML = `View`;
+            times.innerHTML = `View`;
         }
 
         if ((timeleft === 2 || timeleft === 1 || timeleft === 0) && human != 0) {
-            document.getElementById("Answer").innerHTML = `Human Lose`;
-            document.getElementById("Lose").play();
-            document.getElementById("count").innerHTML += `O`;
-            document.getElementById("time").innerHTML = `View`;
+            answer.style.color = "red";
+            answer.innerHTML = `Human Lose`;
+            lose.play();
+            count.innerHTML += `O`;
+            times.innerHTML = `View`;
             random();
             stopper();
             human = 4;
@@ -83,9 +99,10 @@ function game() {
             }
             if (timeleft === -1 && human === 0) {
                 if (human === 0) {
-                    document.getElementById("Answer").innerHTML = `Human Lose`;
-                    document.getElementById("Lose").play();
-                    document.getElementById("count").innerHTML += `O`;
+                    answer.style.color = "red";
+                    answer.innerHTML = `Human Lose`;
+                    lose.play();
+                    count.innerHTML += `O`;
                     botpoint++;
                     stopper();
                     loop();
@@ -100,7 +117,7 @@ function game() {
 //The bot choices
 function random() {
     if (bot === 1) {
-        document.getElementById("Bot-Pick").innerHTML = "Rock";
+        botpicks.innerHTML = "Rock";
         botimages = ['Rock.jpg'];
         user2 = {
             input: "rock",
@@ -110,7 +127,7 @@ function random() {
         roll();
     }
     if (bot === 2) {
-        document.getElementById("Bot-Pick").innerHTML = "paiper";
+        botpicks.innerHTML = "paiper";
         botimages = ['Paiper.jpg'];
         user2 = {
             input: "paper",
@@ -121,7 +138,7 @@ function random() {
         roll();
     }
     if (bot === 3) {
-        document.getElementById("Bot-Pick").innerHTML = "siccors";
+        botpicks.innerHTML = "siccors";
         botimages = ['Siscors.jpg'];
         user2 = {
             input: "siscors",
@@ -169,26 +186,29 @@ function siccors() {
 //Decieds who wins or loses
 function battle() {
     if (user1.input === user2.input) {
-        document.getElementById("Answer").innerHTML = `Tie`;
-        document.getElementById("Tie").play();
+        answer.style.color = "black";
+        answer.innerHTML = `Tie`;
+        ties.play();
         tie();
         setTimeout(function() {
             game();
         }, 2000);
     }
     if (user1.input && (user2.input === user1.strong)) {
-        document.getElementById("Answer").innerHTML = `Human Wins`;
-        document.getElementById("Win").play();
-        document.getElementById("count").innerHTML += `X`;
+        answer.style.color = "green";
+        answer.innerHTML = `Human Wins`;
+        win.play();
+        count.innerHTML += `X`;
         images = [user1.pic];
         humanRoll();
         point++;
         loop();
     }
     if (user1.input && (user2.input === user1.weakness)) {
-        document.getElementById("Answer").innerHTML = `Human Lose`;
-        document.getElementById("Lose").play();
-        document.getElementById("count").innerHTML += `O`;
+        answer.style.color = "red";
+        answer.innerHTML = `Human Lose`;
+        lose.play();
+        count.innerHTML += `O`;
         images = [user1.pic];
         humanRoll();
         botpoint++;
@@ -204,14 +224,14 @@ function loop() {
         }, 2000);
     }
     if (point === 2) {
-        document.getElementById("score").innerHTML = "Human wins the game";
-        document.getElementById("newRound").innerHTML = "To play again press play!";
+        score.innerHTML = "Human wins the game";
+        Newround.innerHTML = "To play again press play!";
 
 
     }
     if (botpoint === 2) {
-        document.getElementById("score").innerHTML = "Human Loses the game";
-        document.getElementById("newRound").innerHTML = "To play again press play!";
+        score.innerHTML = "Human Loses the game";
+        Newround.innerHTML = "To play again press play!";
 
     }
 }
@@ -219,8 +239,8 @@ function loop() {
 //Counts points if you pick to early
 function earlyLoop() {
     if (botpoint === 2) {
-        document.getElementById("score").innerHTML = "Human Loses the game";
-        document.getElementById("newRound").innerHTML = "To play again press play!";
+        score.innerHTML = "Human Loses the game";
+        Newround.innerHTML = "To play again press play!";
         return;
     }
     setTimeout(function() {
@@ -230,7 +250,7 @@ function earlyLoop() {
 
 //Images bot cycler
 function roll() {
-    let botrotator = document.getElementById('img');
+    let botrotator = Img;
     if (botimages.length === 3) {
         let num = 0;
         let changeImage = function() {
@@ -249,7 +269,7 @@ function roll() {
 
 //Images human cycler
 function humanRoll() {
-    let rotator = document.getElementById('humanImg');
+    let rotator = HumanImg
     if (images.length === 3) {
         let num = 0;
         let changeImage = function() {
