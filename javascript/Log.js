@@ -13,8 +13,8 @@ let delayInSeconds = 1;
 let human;
 let botClear;
 let clear;
-let user1;
-let user2;
+let player;
+let botObj;
 
 
 //event liseners
@@ -119,7 +119,7 @@ function random() {
     if (bot === 1) {
         botpicks.innerHTML = "Rock";
         botimages = ['Rock.jpg'];
-        user2 = {
+        botObj = {
             input: "rock",
             weakness: "paper",
             strong: "siscors",
@@ -129,7 +129,7 @@ function random() {
     if (bot === 2) {
         botpicks.innerHTML = "paiper";
         botimages = ['Paiper.jpg'];
-        user2 = {
+        botObj = {
             input: "paper",
             weakness: "siscors",
             strong: "rock",
@@ -140,7 +140,7 @@ function random() {
     if (bot === 3) {
         botpicks.innerHTML = "siccors";
         botimages = ['Siscors.jpg'];
-        user2 = {
+        botObj = {
             input: "siscors",
             weakness: "rock",
             strong: "paper",
@@ -155,7 +155,7 @@ function random() {
 //The user choices
 function rock() {
     human = 1;
-    user1 = {
+    player = {
         input: "rock",
         weakness: "paper",
         strong: "siscors",
@@ -165,7 +165,7 @@ function rock() {
 
 function paiper() {
     human = 2;
-    user1 = {
+    player = {
         input: "paper",
         weakness: "siscors",
         strong: "rock",
@@ -175,7 +175,7 @@ function paiper() {
 
 function siccors() {
     human = 3;
-    user1 = {
+    player = {
         input: "siscors",
         weakness: "rock",
         strong: "paper",
@@ -185,7 +185,7 @@ function siccors() {
 
 //Decieds who wins or loses
 function battle() {
-    if (user1.input === user2.input) {
+    if (player.input === botObj.input) {
         answer.style.color = "black";
         answer.innerHTML = `Tie`;
         ties.play();
@@ -194,22 +194,22 @@ function battle() {
             game();
         }, 2000);
     }
-    if (user1.input && (user2.input === user1.strong)) {
+    if (player.input && (botObj.input === player.strong)) {
         answer.style.color = "green";
         answer.innerHTML = `Human Wins`;
         win.play();
         count.innerHTML += `X`;
-        images = [user1.pic];
+        images = [player.pic];
         humanRoll();
         point++;
         loop();
     }
-    if (user1.input && (user2.input === user1.weakness)) {
+    if (player.input && (botObj.input === player.weakness)) {
         answer.style.color = "red";
         answer.innerHTML = `Human Lose`;
         lose.play();
         count.innerHTML += `O`;
-        images = [user1.pic];
+        images = [player.pic];
         humanRoll();
         botpoint++;
         loop();
