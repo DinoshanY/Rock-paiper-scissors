@@ -13,42 +13,51 @@
 
 
 <body>
+
+    
     <!--Send you to home page-->
     <div>
         <ul>
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="../Index.html">Home</a></li>
         </ul>
         <h1>Rock Papier Siccors</h1>
     </div>
 
-    <!--bot choice and the round winner-->
-    <div class="contain">
-        <div id="Bot-Pick" class="Bot-Text"></div>
-        <div id="Answer" class="Answer"></div>
-    </div>
 
-    <div class="starter">
-        <div class="button" id="starty">Play</div>
-    </div>
+    <main>
+        <!--bot choice and the round winner-->
+        <div class="contain">
+            <div id="Bot-Pick" class="Bot-Text"></div>
+            <div id="Answer" class="Answer"></div>
+        </div>
 
-    <!--Images and timer-->
-    <div class="container">
-        <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="humanImg">
-        <div class="time" id="time">3</div>
-        <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="img">
-    </div>
+        <div class="starter">
+            <div class="button" id="starty">Play</div>
+        </div>
 
-    <!-- user inputs-->
-    <div class="input">
-        <button class="button" id="Rocky">Rock</button>
-        <button class="button" id="Paipery">Paiper</button>
-        <button class="button" id="Siccorsy">Siccors</button>
-    </div>
 
-    <!--the score, a count for each round, and a text for newround-->
-    <div id="score" class="score"></div>
-    <div id="count" class="count"></div>
-    <div id="newRound" class="newRound"></div>
+        <!--Images and timer-->
+        <div class="container">
+            <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="humanImg">
+            <div class="time" id="time">3</div>
+            <img src="../Images/Rock.jpg" alt="rock" width="400" height="300" id="img">
+        </div>
+
+
+        <!-- user inputs-->
+        <div class="input">
+           <button class="button" id="Rocky">Rock</button>
+           <button class="button" id="Paipery">Paiper</button>
+           <button class="button" id="Siccorsy">Siccors</button>
+        </div>
+
+
+        <!--the score, a count for each round, and a text for newround-->
+        <div id="score" class="score"></div>
+        <div id="count" class="count"></div>
+        <div id="newRound" class="newRound"></div>
+    </main>
+
 
     <!--diffrent sound, i do not own the sounds-->
     <audio id="Win">
@@ -61,8 +70,10 @@
         <source src="../Sound/Dark Souls ' You Died ' Sound Effect.m4a" type="audio/mpeg">
     </audio>
 
+
     <!--importat to the timer, uses opacity 0-->
     <progress class="progress" value="0" max="3" id="progressBar"></progress>
+
 
 </body>
 

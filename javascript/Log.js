@@ -50,6 +50,8 @@ function game() {
     human = 0;
     botimages = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
     images = ['Rock.jpg', 'Paiper.jpg', 'Siscors.jpg'];
+    humanImg.style.animation = "humanImg 4s"
+    img.style.animation = "img 4s"
     roll();
     humanRoll();
 
@@ -92,6 +94,8 @@ function game() {
 
 
         if (timeleft === -1 && human != 4) {
+            humanImg.style.animation = "";
+            img.style.animation = "";
             random();
             if (timeleft === -1 && human != 0) {
                 battle(human);
