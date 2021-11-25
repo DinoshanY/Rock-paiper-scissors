@@ -1,4 +1,6 @@
-import { Paipery, Rocky, Siccorsy, starty, Img, HumanImg, Newround, score, answer, lose, win, count, ties, botpicks, times } from "./export.js";
+import {Paipery, Rocky, Siccorsy, starty, Img, HumanImg, Newround, score, answer, lose, win, count, ties, botpicks, times} from "./model.js";
+
+export const gameLoader = () => {
 
 // Variables
 let botpoint = 0;
@@ -89,13 +91,15 @@ function game() {
             timeleft = -1;
             botpoint++;
             earlyLoop();
+            humanImg.style.animation = ""
+            img.style.animation = ""
             return;
         }
 
 
         if (timeleft === -1 && human != 4) {
-            humanImg.style.animation = "";
-            img.style.animation = "";
+            humanImg.style.animation = ""
+            img.style.animation = ""
             random();
             if (timeleft === -1 && human != 0) {
                 battle(human);
@@ -103,6 +107,8 @@ function game() {
             }
             if (timeleft === -1 && human === 0) {
                 if (human === 0) {
+                    humanImg.style.animation = ""
+                    img.style.animation = ""
                     answer.style.color = "red";
                     answer.innerHTML = `Human Lose`;
                     lose.play();
@@ -192,6 +198,8 @@ function battle() {
     if (player.input === botObj.input) {
         answer.style.color = "black";
         answer.innerHTML = `Tie`;
+        humanImg.style.animation = ""
+        img.style.animation = ""
         ties.play();
         tie();
         setTimeout(function() {
@@ -321,3 +329,5 @@ function tie() {
         humanRoll();
     }
 }
+};
+
